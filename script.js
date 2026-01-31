@@ -1,21 +1,37 @@
 let sections = document.querySelectorAll("section");
 let navLinks = document.querySelectorAll(".navbar a");
 
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute("id");
+function setActive(id) {
+  navLinks.forEach(link => link.classList.remove("active"));
+  const activeLink = document.querySelector(`.navbar a[href="#${id}"]`);
+  if (activeLink) activeLink.classList.add("active");
+}
 
-        if (top >= offset && top < offset + height) {
-            navLinks.forEach(link => {
-                link.classList.remove("active");
-                document.querySelector(`.navbar a[href*="${id}"]`).classList.add("active");
-            });
-        }
-    });
-};
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const windowH = window.innerHeight;
+  const docH = document.documentElement.scrollHeight;
+
+  if (scrollTop + windowH >= docH - 5) {
+    setActive("contact");
+    return;
+  }
+
+  const marker = scrollTop + windowH / 2;
+
+  for (const sec of sections) {
+    const top = sec.offsetTop;
+    const bottom = top + sec.offsetHeight;
+    const id = sec.getAttribute("id");
+
+    if (marker >= top && marker < bottom) {
+      setActive(id);
+      break;
+    }
+  }
+});
+
+window.dispatchEvent(new Event("scroll"));
 
 const readMoreBtns = document.querySelectorAll(".read-more");
 readMoreBtns.forEach(btn => {
@@ -60,6 +76,10 @@ form.addEventListener("submit", function(e){
     form.reset();
   }, 2000);
 });
+
+
+
+
 
 
 
