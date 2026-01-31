@@ -31,6 +31,20 @@ window.addEventListener("scroll", () => {
   }
 });
 
+const hamburger = document.getElementById("hamburger");
+const navLinksBox = document.getElementById("nav-links");
+
+hamburger.addEventListener("click", () => {
+  navLinksBox.classList.toggle("open");
+});
+
+document.querySelectorAll("#nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinksBox.classList.remove("open");
+  });
+});
+
+
 window.dispatchEvent(new Event("scroll"));
 
 const readMoreBtns = document.querySelectorAll(".read-more");
@@ -76,10 +90,6 @@ form.addEventListener("submit", function(e){
     form.reset();
   }, 2000);
 });
-
-
-
-
 
 
 
