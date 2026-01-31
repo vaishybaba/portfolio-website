@@ -96,7 +96,8 @@ body.light .navbar a.active{
 .home {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -133,7 +134,7 @@ body.light .home-content h3 span {
 
 .home-img img {
     max-width: 300px;
-    margin-right: 100px;
+    margin-right: 0;
     border-radius: 60px;
 }
 
@@ -511,6 +512,31 @@ body.light .read-more:hover{
 body.light .toast {
     background: aqua;
     color: #020617;
+}
+
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    text-align: center;
+    padding: 140px 5% 60px;
+  }
+
+  .home-content h1 {
+    font-size: 38px;
+  }
+
+  .home-content h3 {
+    font-size: 22px;
+  }
+
+  .home-content p {
+    font-size: 14px;
+  }
+
+  .home-img img {
+    max-width: 180px;
+    margin: 20px auto 0;
+  }
 }
 
 
