@@ -68,6 +68,78 @@ body.light .logo {
     color: #020617;
 }
 
+.navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width:100%;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  margin-left:auto;
+}
+
+.hamburger {
+  display: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 5px 0;
+  background: #fff;
+  border-radius: 3px;
+}
+
+body.light .hamburger span {
+  background: #020617;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: none; 
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: #020617;
+    border: 2px solid #fb7185;
+    border-radius: 18px;
+    padding: 14px;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 200;
+  }
+
+  body.light .nav-links {
+    background: #fff;
+    border: 2px solid aqua;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .nav-links.open {
+    display: flex; 
+  }
+}
 .navbar a {
     font-size: 18px;
     color: #fff;
