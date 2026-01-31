@@ -5,6 +5,9 @@
     font-family: sans-serif;
 }
 
+html {scroll-behavior: smooth;}
+section {scroll-margin-top: 140px;}
+
 body {
     min-height: 100vh;
     background:#020617;
